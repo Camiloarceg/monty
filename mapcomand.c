@@ -33,7 +33,6 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		if (zero[0] >= '0' && zero[0] <= '9')
 		{
 			number = atoi(zero);
-			printf("number: %d\n", number);
 		}
 		else
 		{
