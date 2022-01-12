@@ -1,8 +1,9 @@
 #include "monty.h"
 /**
- * free_dlistint - free the list
+ * free_list - free the list
  * @stack: list
  *
+ * Return: void
  */
 void free_list(stack_t *stack)
 {

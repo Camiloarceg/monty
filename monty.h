@@ -41,7 +41,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 void _free_double_pointer(char **d_pointer);
-void mapcomand(char *buffer, unsigned int line_numb, stack_t **stack,FILE *fileptr);
+void mapcomand(char *buffer, unsigned int line_numb,
+		stack_t **stack, FILE *fileptr);
 void push(stack_t **stack, unsigned int line_numb);
 void pall(stack_t **stack, unsigned int line_numb);
 void free_list(stack_t *stack);
