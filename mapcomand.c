@@ -19,7 +19,7 @@ void mapcomand(char *buffer, unsigned int line_numb,
 	char *instruction = NULL, *zero;
 	int i = 0, flag = 0;
 
-	number = 0, instruction = strtok(buffer, " \t\n");
+	variables.number = 0, instruction = strtok(buffer, " \t\n");
 	if (instruction == NULL || instruction[0] == '#')
 		return;
 	if (strcmp(instruction, "push") == 0)
@@ -31,7 +31,7 @@ void mapcomand(char *buffer, unsigned int line_numb,
 			free(buffer), free_list(*stack), fclose(fileptr), exit(EXIT_FAILURE);
 		}
 		if (_isdigit(zero) == 1)
-			number = atoi(zero);
+			variables.number = atoi(zero);
 		else
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_numb);

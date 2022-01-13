@@ -19,14 +19,14 @@ void push(stack_t **stack, unsigned int line_numb)
 	}
 	if (*stack == NULL)
 	{
-		new_node->n = number;
+		new_node->n = variables.number;
 		*stack = new_node;
 		(*stack)->prev = NULL;
 		new_node->next = NULL;
 	}
 	else
 	{
-		new_node->n = number;
+		new_node->n = variables.number;
 		(*stack)->prev = new_node;
 		new_node->next = *stack;
 		new_node->prev = NULL;
