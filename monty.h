@@ -11,7 +11,9 @@
 #include <sys/types.h>
 #include <string.h>
 #define UNUSED(x) (void)(x)
-int number;
+
+extern int number;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
