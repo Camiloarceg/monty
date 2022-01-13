@@ -14,9 +14,9 @@ void mapcomand(char *buffer, unsigned int line_numb,
 	instruction_t modulo[] = {{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
 		{"sub", sub}, {"div", divic}, {"mul", mul}, {"mod", mod},
-		{"rotl", rotl}, {"pstr", pstr}, {"#", nop}, {"pchar", pchar}, {NULL, NULL}};
-	char *instruction = NULL;
-	char *zero;
+		{"rotl", rotl}, {"pstr", pstr}, {"#", nop}, {"pchar", pchar},
+		{"rotr", rotr}, {NULL, NULL}};
+	char *instruction = NULL, *zero;
 	int i = 0, flag = 0;
 
 	number = 0, instruction = strtok(buffer, " \t\n");

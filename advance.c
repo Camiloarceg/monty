@@ -82,3 +82,29 @@ void rotl(stack_t **stack, unsigned int line_numb)
 	(*stack) = (*stack)->next;
 	tmp->next->next = NULL;
 }
+
+/**
+ * rotr - revert stack
+ * @stack: stack
+ * @line_numb: number line
+ * 
+ */
+void rotr(stack_t **stack, unsigned int line_numb)
+{
+	stack_t *tmp = *stack;
+
+	(void) line_numb;
+	tmp = *stack;
+	if (tmp == NULL || tmp->next == NULL)
+	{
+		return;
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+
+	tmp->next = *stack;
+	tmp->prev->next = NULL;
+	tmp->prev = NULL;
+	*stack = tmp;
+	(*stack)->next->prev = *stack;
+}
