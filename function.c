@@ -11,27 +11,32 @@ void push(stack_t **stack, unsigned int line_numb)
 
 	UNUSED(line_numb);
 
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	if (variables.flag == 0)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	if (*stack == NULL)
-	{
-		new_node->n = variables.number;
-		*stack = new_node;
-		(*stack)->prev = NULL;
-		new_node->next = NULL;
+		new_node = malloc(sizeof(stack_t));
+		if (new_node == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
+		if (*stack == NULL)
+		{
+			new_node->n = variables.number;
+			*stack = new_node;
+			(*stack)->prev = NULL;
+			new_node->next = NULL;
+		}
+		else
+		{
+			new_node->n = variables.number;
+			(*stack)->prev = new_node;
+			new_node->next = *stack;
+			new_node->prev = NULL;
+			*stack = new_node;
+		}
 	}
 	else
-	{
-		new_node->n = variables.number;
-		(*stack)->prev = new_node;
-		new_node->next = *stack;
-		new_node->prev = NULL;
-		*stack = new_node;
-	}
+		add_end(stack);
 }
 /**
  * pall - prints all the values on the stack, starting from the top

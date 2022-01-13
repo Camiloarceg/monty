@@ -108,3 +108,37 @@ void rotr(stack_t **stack, unsigned int line_numb)
 	*stack = tmp;
 	(*stack)->next->prev = *stack;
 }
+
+/**
+ * add_end - adds a new node at the end of a dlistint_t list.
+ * @stack: head of the list.
+ */
+void add_end(stack_t **stack)
+{
+	stack_t *new_node, *tmp = *stack;
+
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	if (*stack == NULL)
+	{
+		new_node->n = variables.number;
+		*stack = new_node;
+		new_node->prev = NULL;
+		new_node->next = NULL;
+	}
+	else
+	{
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
+		new_node->n = variables.number;
+		tmp->next = new_node;
+		new_node->prev = tmp;
+		new_node->next = NULL;
+	}
+}

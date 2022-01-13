@@ -15,7 +15,7 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
 		{"sub", sub}, {"div", divic}, {"mul", mul}, {"mod", mod},
 		{"rotl", rotl}, {"pstr", pstr}, {"#", nop}, {"pchar", pchar},
-		{"rotr", rotr}, {NULL, NULL}};
+		{"rotr", rotr}, {"stack", fstack}, {"queue", queue}, {NULL, NULL}};
 	char *instruction = NULL, *zero;
 	int i = 0, flag = 0;
 

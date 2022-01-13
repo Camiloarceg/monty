@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	ssize_t nread = 0;
 
-
+	variables.flag = 0;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
