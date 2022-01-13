@@ -87,7 +87,7 @@ void rotl(stack_t **stack, unsigned int line_numb)
  * rotr - revert stack
  * @stack: stack
  * @line_numb: number line
- * 
+ *
  */
 void rotr(stack_t **stack, unsigned int line_numb)
 {
