@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	stack_t *stack = NULL;
 	int i = 0;
+	ssize_t nread = 0;
+
 
 	if (argc != 2)
 	{
@@ -26,9 +28,11 @@ int main(int argc, char *argv[])
 	{
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&buffer, &len, fileptr) != -1)
+	while ((nread = getline(&buffer, &len, fileptr)) != -1)
 	{
 		line_numb += 1;
+		if (nread == 2);
+			continue;
 		if (buffer == NULL)
 			break;
 		for (i = 0; buffer[i] != '\0'; ++i)
