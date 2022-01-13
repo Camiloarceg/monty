@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 	unsigned int line_numb = 0;
 	size_t len = 0;
 	stack_t *stack = NULL;
-	int i = 0;
 	ssize_t nread = 0;
 
 
@@ -31,15 +30,10 @@ int main(int argc, char *argv[])
 	while ((nread = getline(&buffer, &len, fileptr)) != -1)
 	{
 		line_numb += 1;
-		if (nread == 2);
+		if (nread <= 2)
 			continue;
 		if (buffer == NULL)
 			break;
-		for (i = 0; buffer[i] != '\0'; ++i)
-		{
-			if (buffer[i] != ' ' && buffer[i] != '\t')
-				break;
-		}
 		mapcomand(buffer, line_numb, &stack, fileptr);
 		free(buffer);
 		buffer = NULL;

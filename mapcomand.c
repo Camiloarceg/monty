@@ -15,7 +15,6 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", NULL}, {NULL, NULL}};
 	char *instruction = NULL;
 	char *zero;
-	char *signal;
 	int i = 0;
 
 	number = 0;
@@ -38,15 +37,6 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		else
 		{
 			fprintf(stderr, "L<%d>: usage: push integer\n", line_numb);
-			free(buffer);
-			free_list(*stack);
-			fclose(fileptr);
-			exit(EXIT_FAILURE);
-		}
-		signal = strtok('\0', " \t\n");
-		if (signal)
-		{
-			fprintf(stderr, "USAGE: monty file");
 			free(buffer);
 			free_list(*stack);
 			fclose(fileptr);
