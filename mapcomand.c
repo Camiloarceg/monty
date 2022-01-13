@@ -15,32 +15,26 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", NULL}, {NULL, NULL}};
 	char *instruction = NULL;
 	char *zero;
-	int i = 0;
+	int i = 0, flag = 0;
 
 	number = 0;
 	instruction = strtok(buffer, " \t\n");
+	if (instruction == NULL || instruction[0] == '#')
+		return;
 	if (strcmp(instruction, "push") == 0)
 	{
 		zero = strtok('\0', " \t\n");
 		if (!zero)
 		{
 			fprintf(stderr, "L<%d>: usage: push integer\n", line_numb);
-			free(buffer);
-			free_list(*stack);
-			fclose(fileptr);
-			exit(EXIT_FAILURE);
+			free(buffer), free_list(*stack), fclose(fileptr), exit(EXIT_FAILURE);
 		}
 		if (zero[0] >= '0' && zero[0] <= '9')
-		{
 			number = atoi(zero);
-		}
 		else
 		{
 			fprintf(stderr, "L<%d>: usage: push integer\n", line_numb);
-			free(buffer);
-			free_list(*stack);
-			fclose(fileptr);
-			exit(EXIT_FAILURE);
+			free(buffer), free_list(*stack), fclose(fileptr), exit(EXIT_FAILURE);
 		}
 	}
 	for (i = 0; modulo[i].f != NULL; i++)
@@ -48,6 +42,12 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		if (strcmp(modulo[i].opcode, instruction) == 0)
 		{
 			modulo[i].f(stack, line_numb);
+			flag = 1;
 		}
+	}
+	if (flag == 0)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_numb, instruction);
+		free(buffer), free_list(*stack), fclose(fileptr), exit(EXIT_FAILURE);
 	}
 }

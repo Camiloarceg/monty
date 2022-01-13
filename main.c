@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 	fileptr = fopen(argv[1], "r");
 	if (fileptr == NULL)
 	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while ((nread = getline(&buffer, &len, fileptr)) != -1)
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
 		if (nread <= 2)
 			continue;
 		if (buffer == NULL)
-			break;
+			continue;
 		mapcomand(buffer, line_numb, &stack, fileptr);
 		free(buffer);
 		buffer = NULL;
