@@ -12,7 +12,7 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		stack_t **stack, FILE *fileptr)
 {
 	instruction_t modulo[] = {{"push", push}, {"pall", pall}, {"pint", pint},
-		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", NULL}, {NULL, NULL}};
+		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
 	char *instruction = NULL;
 	char *zero;
 	int i = 0, flag = 0;
@@ -26,14 +26,14 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		zero = strtok('\0', " \t\n");
 		if (!zero)
 		{
-			fprintf(stderr, "L<%d>: usage: push integer\n", line_numb);
+			fprintf(stderr, "L%d: usage: push integer\n", line_numb);
 			free(buffer), free_list(*stack), fclose(fileptr), exit(EXIT_FAILURE);
 		}
-		if (zero[0] >= '0' && zero[0] <= '9')
+		if (_isdigit(zero) == 1)
 			number = atoi(zero);
 		else
 		{
-			fprintf(stderr, "L<%d>: usage: push integer\n", line_numb);
+			fprintf(stderr, "L%d: usage: push integer\n", line_numb);
 			free(buffer), free_list(*stack), fclose(fileptr), exit(EXIT_FAILURE);
 		}
 	}
@@ -50,4 +50,23 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_numb, instruction);
 		free(buffer), free_list(*stack), fclose(fileptr), exit(EXIT_FAILURE);
 	}
+}
+/**
+ * _isdigit - check if it is digit
+ * @digit: digit
+ *
+ * Return: 0 or 1
+ */
+int _isdigit(char *digit)
+{
+	int i;
+
+	for (i = 0; digit[i] != '\0'; i++)
+	{
+		if ((digit[i] < 48 || digit[i] > 57) && digit[0] != 45)
+		{
+			return (0);
+		}
+	}
+	return (1);
 }

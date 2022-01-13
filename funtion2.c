@@ -18,3 +18,13 @@ void add(stack_t **stack, unsigned int line_numb)
 	tmp->next->n += tmp->n;
 	pop(stack, line_numb);
 }
+/**
+ * nop - doesn’t do anything.
+ * @stack: struct stack_t
+ * @line_number: line number to show in error case
+*/
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}

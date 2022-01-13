@@ -50,5 +50,7 @@ void pint(stack_t **stack, unsigned int line_numb);
 void pop(stack_t **stack, unsigned int line_numb);
 void swap(stack_t **stack, unsigned int ln);
 void add(stack_t **stack, unsigned int line_numb);
+int _isdigit(char *digit);
+void nop(stack_t **stack, unsigned int line_number);
 
 #endif /* MAIN_H */
