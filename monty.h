@@ -57,5 +57,6 @@ void add(stack_t **stack, unsigned int line_numb);
 int _isdigit(char *digit);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_numb);
+void divic(stack_t **stack, unsigned int line_numb);
 
 #endif /* MAIN_H */
