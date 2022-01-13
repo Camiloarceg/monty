@@ -36,6 +36,7 @@ void pchar(stack_t **stack, unsigned int line_numb)
 void pstr(stack_t **stack, unsigned int line_numb)
 {
 	stack_t *tmp;
+
 	(void) line_numb;
 
 	tmp = *stack;
