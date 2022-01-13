@@ -22,6 +22,10 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	fileptr = fopen(argv[1], "r");
+	if (fileptr == NULL)
+	{
+		exit(EXIT_FAILURE);
+	}
 	while (getline(&buffer, &len, fileptr) != -1)
 	{
 		line_numb += 1;

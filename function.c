@@ -14,7 +14,7 @@ void push(stack_t **stack, unsigned int line_numb)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	if (*stack == NULL)
@@ -63,7 +63,7 @@ void pint(stack_t **stack, unsigned int line_numb)
 
 	if (*stack == NULL)
 	{
-		printf("L%u: can't pint, stack empty\n", line_numb);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_numb);
 		exit(EXIT_FAILURE);
 	}
 	printf("%i\n", (*stack)->n);
@@ -80,7 +80,7 @@ void pop(stack_t **stack, unsigned int line_numb)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		printf("L%u: can't pop an empty stack\n", line_numb);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_numb);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
@@ -107,7 +107,7 @@ void swap(stack_t **stack, unsigned int line_numb)
 	}
 	if (i < 2)
 	{
-		printf("L%u: can't swap, stack too short\n", line_numb);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_numb);
 		exit(EXIT_FAILURE);
 	}
 	num = (*stack)->n;
