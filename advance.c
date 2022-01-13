@@ -43,6 +43,7 @@ void pstr(stack_t **stack, unsigned int line_numb)
 	if (tmp == NULL)
 	{
 		fprintf(stdout, "\n");
+		return;
 	}
 	while (tmp != NULL)
 	{
