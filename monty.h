@@ -61,5 +61,6 @@ void divic(stack_t **stack, unsigned int line_numb);
 void mul(stack_t **stack, unsigned int line_numb);
 void mod(stack_t **stack, unsigned int line_numb);
 void pchar(stack_t **stack, unsigned int line_numb);
+void pstr(stack_t **stack, unsigned int line_numb);
 
 #endif /* MAIN_H */
