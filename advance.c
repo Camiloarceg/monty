@@ -57,3 +57,28 @@ void pstr(stack_t **stack, unsigned int line_numb)
 	}
 	fprintf(stdout, "\n");
 }
+
+/**
+ * rotl - rotates the stack to the top.
+ * @stack: list.
+ * @line_numb: number of line.
+ *
+ */
+void rotl(stack_t **stack, unsigned int line_numb)
+{
+	stack_t *tmp;
+
+	(void) line_numb;
+	tmp = *stack;
+	if (tmp == NULL || tmp->next == NULL)
+	{
+		return;
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	(*stack)->next->prev = NULL;
+	tmp->next = *stack;
+	tmp->next->prev = tmp;
+	(*stack) = (*stack)->next;
+	tmp->next->next = NULL;
+}
