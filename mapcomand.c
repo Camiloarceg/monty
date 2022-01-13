@@ -13,8 +13,8 @@ void mapcomand(char *buffer, unsigned int line_numb,
 {
 	instruction_t modulo[] = {{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
-		{"sub", sub}, {"div", divic}, {"mul", mul},
-		{"mod", mod}, {"#", nop}, {NULL, NULL}};
+		{"sub", sub}, {"div", divic}, {"mul", mul}, {"mod", mod},
+		{"#", nop}, {"pchar", pchar}, {NULL, NULL}};
 	char *instruction = NULL;
 	char *zero;
 	int i = 0, flag = 0;
