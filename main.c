@@ -1,7 +1,6 @@
 #include "monty.h"
 #include <stdio.h>
 
-int number = 0;
 /**
  * main - file
  * @argc: data

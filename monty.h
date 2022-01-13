@@ -12,8 +12,6 @@
 #include <string.h>
 #define UNUSED(x) (void)(x)
 
-extern int number;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -42,6 +40,9 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+int number;
+
 void _free_double_pointer(char **d_pointer);
 void mapcomand(char *buffer, unsigned int line_numb,
 		stack_t **stack, FILE *fileptr);
