@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * stack - stack
+ * fstack - stack
  * @stack: stack
  * @line_numb: number line
  */
