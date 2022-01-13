@@ -12,7 +12,8 @@ void mapcomand(char *buffer, unsigned int line_numb,
 		stack_t **stack, FILE *fileptr)
 {
 	instruction_t modulo[] = {{"push", push}, {"pall", pall}, {"pint", pint},
-		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
+		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
+		{"sub", sub}, {NULL, NULL}};
 	char *instruction = NULL;
 	char *zero;
 	int i = 0, flag = 0;
