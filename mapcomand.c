@@ -70,3 +70,4 @@ int _isdigit(char *digit)
 	}
 	return (1);
 }
+
