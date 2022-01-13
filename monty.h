@@ -1,16 +1,16 @@
 #ifndef MAIN_H
 #define MAIN_H
-/*include library*/
-#define _GNU_SOURCE
+
 #define _POSIX_C_SOURCE 200809L
-#include <unistd.h>
-#include <fcntl.h>
+#define UNUSED(x) (void)(x)
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
-#include <sys/types.h>
 #include <string.h>
-#define UNUSED(x) (void)(x)
+#include <unistd.h>
+#include <ctype.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
