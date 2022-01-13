@@ -13,13 +13,13 @@ void mapcomand(char *buffer, unsigned int line_numb,
 {
 	instruction_t modulo[] = {{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
-		{"sub", sub}, {"div", divic}, {"mul", mul}, {NULL, NULL}};
+		{"sub", sub}, {"div", divic}, {"mul", mul},
+		{"mod", mod}, {NULL, NULL}};
 	char *instruction = NULL;
 	char *zero;
 	int i = 0, flag = 0;
 
-	number = 0;
-	instruction = strtok(buffer, " \t\n");
+	number = 0, instruction = strtok(buffer, " \t\n");
 	if (instruction == NULL || instruction[0] == '#')
 		return;
 	if (strcmp(instruction, "push") == 0)
@@ -72,3 +72,13 @@ int _isdigit(char *digit)
 	return (1);
 }
 
+/**
+ * nop - doesn’t do anything.
+ * @stack: struct stack_t
+ * @line_number: line number to show in error case
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
